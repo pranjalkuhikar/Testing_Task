@@ -11,5 +11,9 @@
   "devDependencies": {
     "@playwright/test": "^1.60.0",
     "@types/node": "^25.9.1"
+  },
+  "dependencies": {
+    "@ngrok/ngrok": "^1.7.0",
+    "express": "^5.2.1"
   }
 }
