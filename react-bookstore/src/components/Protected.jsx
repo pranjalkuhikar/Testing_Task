@@ -1,14 +1,11 @@
-import Dashboard from "./Dashboard";
-import Login from "./Login";
+import { Navigate } from "react-router-dom";
 
-const Protected = () => {
+const Protected = ({ children }) => {
   const email = localStorage.getItem("Email");
-  if (email === "test@test.com") {
-    <Dashboard />;
-  } else {
-    <Login />;
+  if (email != "test@test.com") {
+    return <Navigate to="/login" replace />;
   }
-  return <></>;
+  return <>{children}</>;
 };
 
 export default Protected;
