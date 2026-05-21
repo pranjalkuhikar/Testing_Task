@@ -7,6 +7,9 @@ import {
 import Login from "./components/Login";
 import Protected from "./components/Protected";
 import Dashboard from "./components/Dashboard";
+import Profile from "./components/Profile";
+import Settings from "./components/Settings";
+import Feed from "./components/Feed";
 
 const App = () => {
   return (
@@ -18,6 +21,30 @@ const App = () => {
           element={
             <Protected>
               <Dashboard />
+            </Protected>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <Protected>
+              <Profile />
+            </Protected>
+          }
+        />
+        <Route
+          path="/settings"
+          element={
+            <Protected>
+              <Settings />
+            </Protected>
+          }
+        />
+        <Route
+          path="/feed"
+          element={
+            <Protected>
+              <Feed />
             </Protected>
           }
         />
