@@ -4,16 +4,17 @@ This project contains Playwright tests for the React Bookstore application.
 
 ## Test Files
 
-| Test File | Description |
-|-----------|-------------|
-| `setup.spec.js` | Login setup - authenticates and saves session state |
-| `task1.spec.js` | Task 1 - Login flow test |
-| `task2.spec.js` | Task 2 - Protected pages test |
-| `teardown.spec.js` | Cleanup - removes saved session state |
+| Test File          | Description                                         |
+| ------------------ | --------------------------------------------------- |
+| `setup.spec.js`    | Login setup - authenticates and saves session state |
+| `task1.spec.js`    | Task 1 - Login flow test                            |
+| `task2.spec.js`    | Task 2 - Protected pages test                       |
+| `teardown.spec.js` | Cleanup - removes saved session state               |
 
 ## Task 1 - Login Flow Test
 
 Tests the complete login flow:
+
 1. Navigate to `/login`
 2. Enter email: `test@test.com`
 3. Enter password: `password`
@@ -32,6 +33,7 @@ Tests the complete login flow:
 ## Task 2 - Protected Pages Test
 
 Tests all protected pages after authentication:
+
 1. Navigate to `/dashboard` - Verify Dashboard heading
 2. Navigate to `/feed` - Verify Activity Feed heading
 3. Navigate to `/profile` - Verify User Profile heading
