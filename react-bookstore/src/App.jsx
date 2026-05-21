@@ -3,6 +3,7 @@ import {
   Routes,
   Route,
   Navigate,
+  useLocation,
 } from "react-router-dom";
 import Login from "./components/Login";
 import Protected from "./components/Protected";
@@ -12,10 +13,13 @@ import Settings from "./components/Settings";
 import Feed from "./components/Feed";
 import NavBar from "./components/NavBar";
 
-const App = () => {
+const AppContent = () => {
+  const location = useLocation();
+  const isLoginPage = location.pathname === "/login";
+
   return (
-    <Router>
-      <NavBar />
+    <>
+      {!isLoginPage && <NavBar />}
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route
@@ -52,6 +56,14 @@ const App = () => {
         />
         <Route path="/" element={<Navigate to="/dashboard" replace />} />
       </Routes>
+    </>
+  );
+};
+
+const App = () => {
+  return (
+    <Router>
+      <AppContent />
     </Router>
   );
 };
