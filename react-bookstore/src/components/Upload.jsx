@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Upload = () => {
   const [file, setFile] = useState(null);
@@ -35,18 +37,35 @@ const Upload = () => {
     if (selectedFile.type === "application/pdf") {
       setFile(selectedFile);
     } else {
-      alert("Please upload a PDF file");
+      toast.error("Please upload a PDF file");
     }
   };
 
-  const handleUpload = () => {
-    if (file) {
-      alert(`File "${file.name}" is ready to upload!`);
+  const handleUpload = async () => {
+    if (!file) return;
+
+    const formData = new FormData();
+    formData.append("file", file);
+
+    try {
+      const response = await fetch("/api/upload", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (response.ok) {
+        toast.success("File uploaded successfully");
+      } else {
+        toast.error("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      toast.error("Something went wrong. Please try again.", error);
     }
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
+      <ToastContainer position="top-right" />
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
         <h1 className="text-2xl font-bold mb-6 text-gray-800 text-center">
           Upload PDF
@@ -65,7 +84,7 @@ const Upload = () => {
         >
           <input
             type="file"
-            accept=".pdf"
+            accept="application/pdf"
             onChange={handleChange}
             className="hidden"
             id="file-upload"
