@@ -2,20 +2,28 @@ import { test, expect } from "@playwright/test";
 
 test("check the Dashboard", async ({ page }) => {
   await page.goto("/dashboard");
-  await expect(page.getByText("Dashboard")).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "Dashboard", exact: true }),
+  ).toBeVisible();
 });
 
 test("check the Feed", async ({ page }) => {
   await page.goto("/feed");
-  await expect(page.getByText("Activity Feed")).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "Feed", exact: true }),
+  ).toBeVisible();
 });
 
 test("check the Profile", async ({ page }) => {
   await page.goto("/profile");
-  await expect(page.getByText("User Profile")).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "Profile", exact: true }),
+  ).toBeVisible();
 });
 
 test("check the Settings", async ({ page }) => {
   await page.goto("/settings");
-  await expect(page.getByText("Settings")).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "Settings", exact: true }),
+  ).toBeVisible();
 });
