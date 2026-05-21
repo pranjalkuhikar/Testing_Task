@@ -48,7 +48,7 @@ const Login = () => {
             />
           </div>
           <button
-            type="button"
+            type="submit"
             className="w-full py-2 text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none"
           >
             Login
