@@ -25,7 +25,7 @@ const Login = () => {
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label className="block mb-2 text-sm font-medium text-gray-700">
-              Email
+              Enter your email
             </label>
             <input
               type="email"
@@ -33,11 +33,12 @@ const Login = () => {
               onChange={(e) => setEmail(e.target.value)}
               className="w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:border-blue-300"
               placeholder="Enter your email"
+              required
             />
           </div>
           <div className="mb-6">
             <label className="block mb-2 text-sm font-medium text-gray-700">
-              Password
+              Enter your password
             </label>
             <input
               type="password"
@@ -45,6 +46,7 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
               className="w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:border-blue-300"
               placeholder="Enter your password"
+              required
             />
           </div>
           <button
