@@ -12,16 +12,22 @@ import Profile from "./components/Profile";
 import Settings from "./components/Settings";
 import Feed from "./components/Feed";
 import NavBar from "./components/NavBar";
+import Home from "./components/Home";
+import Upload from "./components/Upload";
 
 const AppContent = () => {
   const location = useLocation();
   const isLoginPage = location.pathname === "/login";
+  const isHomePage = location.pathname === "/";
+  const isUploadPage = location.pathname === "/upload";
 
   return (
     <>
-      {!isLoginPage && <NavBar />}
+      {!isLoginPage && !isHomePage && !isUploadPage && <NavBar />}
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/upload" element={<Upload />} />
         <Route
           path="/dashboard"
           element={
@@ -54,7 +60,7 @@ const AppContent = () => {
             </Protected>
           }
         />
-        <Route path="/" element={<Navigate to="/dashboard" replace />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </>
   );

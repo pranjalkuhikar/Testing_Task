@@ -11,7 +11,7 @@ This project contains Playwright tests for the React Bookstore application.
 | `task2.spec.js`    | Task 2 - Protected pages test                       |
 | `teardown.spec.js` | Cleanup - removes saved session state               |
 
-## Task 1 - Login Flow Test
+## Task 1 - The Sandbox
 
 Tests the complete login flow:
 
@@ -30,7 +30,7 @@ Tests the complete login flow:
 
 ![Task 1 Result](react-bookstore/public/task1Result.png)
 
-## Task 2 - Protected Pages Test
+## Task 2 - The Pro Setup
 
 Tests all protected pages after authentication:
 
