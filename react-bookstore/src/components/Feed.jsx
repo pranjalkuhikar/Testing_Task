@@ -18,20 +18,22 @@ const Feed = () => {
   ];
 
   return (
-    <div className="p-8">
-      <h1 className="mb-6 text-3xl font-bold">Activity Feed</h1>
-      <div className="space-y-4">
-        {posts.map((post) => (
-          <div
-            key={post.id}
-            className="p-6 bg-white rounded-lg shadow-sm border border-gray-200"
-          >
-            <h2 className="text-xl font-semibold text-blue-600">
-              {post.title}
-            </h2>
-            <p className="mt-2 text-gray-700">{post.content}</p>
-          </div>
-        ))}
+    <div className="min-h-screen bg-gray-50">
+      <div className="p-8 max-w-7xl mx-auto">
+        <h1 className="mb-6 text-3xl font-bold">Activity Feed</h1>
+        <div className="space-y-4">
+          {posts.map((post) => (
+            <div
+              key={post.id}
+              className="p-6 bg-white rounded-lg shadow-sm border border-gray-200"
+            >
+              <h2 className="text-xl font-semibold text-blue-600">
+                {post.title}
+              </h2>
+              <p className="mt-2 text-gray-700">{post.content}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

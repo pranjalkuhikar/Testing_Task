@@ -10,10 +10,12 @@ import Dashboard from "./components/Dashboard";
 import Profile from "./components/Profile";
 import Settings from "./components/Settings";
 import Feed from "./components/Feed";
+import NavBar from "./components/NavBar";
 
 const App = () => {
   return (
     <Router>
+      <NavBar />
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route
