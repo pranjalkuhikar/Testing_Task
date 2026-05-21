@@ -1,0 +1,12 @@
+name: Trigger Playwright Tests via Webhook
+
+on:
+  push:
+    branches: [main, master]
+
+jobs:
+  trigger-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Webhook
+        run: curl -X POST ${{ secrets.PW_WEBHOOK_URL }}/webhook
