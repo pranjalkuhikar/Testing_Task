@@ -1,5 +1,5 @@
 const Dashboard = () => {
-  const email = localStorage.get(email);
+  const email = localStorage.getItem("Email");
   return (
     <div className="p-8">
       <h1 className="mb-4 text-3xl font-bold">Welcome to the Dashboard</h1>

@@ -10,7 +10,8 @@ const Login = () => {
     (e) => {
       e.preventDefault();
       if (email === "test@test.com" && password === "password") {
-        localStorage.set(email, password);
+        localStorage.setItem("Email", email);
+        localStorage.setItem("Password", password);
         navigate("/dashboard");
       }
     },
