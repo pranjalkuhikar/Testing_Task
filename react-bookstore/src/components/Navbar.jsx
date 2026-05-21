@@ -6,6 +6,7 @@ const NavBar = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("Email");
+    localStorage.removeItem("Password");
     navigate("/login");
   };
 
