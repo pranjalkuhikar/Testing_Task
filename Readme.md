@@ -4,14 +4,24 @@ This project contains Playwright tests for the React Bookstore application.
 
 ## Test Files
 
-| Test File          | Description                                         |
-| ------------------ | --------------------------------------------------- |
-| `setup.spec.js`    | Login setup - authenticates and saves session state |
-| `task1.spec.js`    | Task 1 - Login flow test                            |
-| `task2.spec.js`    | Task 2 - Protected pages test                       |
-| `teardown.spec.js` | Cleanup - removes saved session state               |
+### Task 1
 
-## Task 1 - The Sandbox
+- `task1.spec.js` - Login flow test
+
+### Task 2
+
+- `setup.spec.js` - Login setup - authenticates and saves session state
+- `task2.spec.js` - Protected pages test (Dashboard, Feed, Profile, Settings)
+- `teardown.spec.js` - Cleanup - removes saved session state
+
+### Task 3
+
+- `task3.spec.js` - Upload functionality test
+- `Helllo.pdf` - Dummy PDF file for upload testing
+
+---
+
+## Task 1 - Login Flow Test
 
 Tests the complete login flow:
 
@@ -30,7 +40,19 @@ Tests the complete login flow:
 
 ![Task 1 Result](react-bookstore/public/task1Result.png)
 
-## Task 2 - The Pro Setup
+---
+
+## Task 2 - Protected Pages Test
+
+### Setup (setup.spec.js)
+
+1. Navigate to `/login`
+2. Fill credentials
+3. Click Login
+4. Save storage state to `storageState.json`
+5. Verify Dashboard is visible
+
+### Test (task2.spec.js)
 
 Tests all protected pages after authentication:
 
@@ -39,33 +61,59 @@ Tests all protected pages after authentication:
 3. Navigate to `/profile` - Verify User Profile heading
 4. Navigate to `/settings` - Verify Settings heading
 
+### Teardown (teardown.spec.js)
+
+1. Remove `storageState.json` file
+2. Cleanup saved login session
+
 **Task 2 Images:**
 
 ![Task 2 Passed](react-bookstore/public/task2Passed.png)
-
-![Task 2 Clean Up](react-bookstore/public/task2CleanUp.png)
 
 ![Task 2 Login](react-bookstore/public/task2Login.png)
 
 ![Task 2 Parallel Test](react-bookstore/public/task2ParallelTest.png)
 
-## Setup (setup.spec.js)
+![Task 2 Clean Up](react-bookstore/public/task2CleanUp.png)
 
-1. Navigate to `/login`
-2. Fill credentials
-3. Click Login
-4. Save storage state to `storageState.json`
-5. Verify Dashboard is visible
+---
 
-## Teardown (teardown.spec.js)
+## Task 3 - Upload Functionality Test
 
-1. Remove `storageState.json` file
-2. Cleanup saved login session
+Tests PDF upload with network interception (no backend required).
+
+### Test 1 - Upload Success (task3.spec.js)
+
+1. Intercept `/api/upload` route with `page.route()`
+2. Return mock 200 response
+3. Navigate to `/upload`
+4. Attach `Helllo.pdf` to file input
+5. Click Upload button
+6. Assert green success toast is visible
+
+### Test 2 - Upload Error (task3.spec.js)
+
+1. Intercept `/api/upload` route with `page.route()`
+2. Return mock 500 response
+3. Navigate to `/upload`
+4. Attach `Helllo.pdf` to file input
+5. Click Upload button
+6. Assert red error toast is visible
+
+**Note:** Network interception via `page.route()` means no real backend is needed - Playwright mocks the API responses.
+
+**Task 3 Images:**
+
+![Task 3 Passed](react-bookstore/public/task3Passed.png)
+
+![Task 3 Result](react-bookstore/public/task3Result.png)
+
+---
 
 ## Playwright Configuration
 
 - **baseURL**: `http://localhost:5173`
-- **Browser**: Chromium
+- **Browser**: Chromium, Firefox, WebKit
 - **Test Directory**: `./tests`
 - **Parallel Execution**: Enabled
 - **Reporter**: HTML
