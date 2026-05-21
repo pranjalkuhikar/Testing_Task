@@ -10,14 +10,14 @@ test("check the Dashboard", async ({ page }) => {
 test("check the Feed", async ({ page }) => {
   await page.goto("/feed");
   await expect(
-    page.getByRole("heading", { name: "Feed", exact: true }),
+    page.getByRole("heading", { name: "Activity Feed", exact: true }),
   ).toBeVisible();
 });
 
 test("check the Profile", async ({ page }) => {
   await page.goto("/profile");
   await expect(
-    page.getByRole("heading", { name: "Profile", exact: true }),
+    page.getByRole("heading", { name: "User Profile", exact: true }),
   ).toBeVisible();
 });
 

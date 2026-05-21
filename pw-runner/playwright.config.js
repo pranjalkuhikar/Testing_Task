@@ -47,21 +47,21 @@ export default defineConfig({
     {
       name: "chromium",
       dependencies: ["setup"],
-      testIgnore: /.*(Setup|teardown).spec.js/,
+      testIgnore: /.*(setup|teardown).spec.js/,
       use: { ...devices["Desktop Chrome"], storageState: "storageState.json" },
     },
 
     {
       name: "firefox",
       dependencies: ["setup"],
-      testIgnore: /.*(Setup|teardown).spec.js/,
+      testIgnore: /.*(setup|teardown).spec.js/,
       use: { ...devices["Desktop Firefox"], storageState: "storageState.json" },
     },
 
     {
       name: "webkit",
       dependencies: ["setup"],
-      testIgnore: /.*(Setup|teardown).spec.js/,
+      testIgnore: /.*(setup|teardown).spec.js/,
       use: { ...devices["Desktop Safari"], storageState: "storageState.json" },
     },
 
